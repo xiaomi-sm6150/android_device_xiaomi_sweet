@@ -11,11 +11,14 @@ DEVICE_PATH := device/xiaomi/sweet
 
 BUILD_BROKEN_DUP_RULES := true
 
-# Audio
-TARGET_PROVIDES_AUDIO_EXTNS := true
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := sweet,sweetin
+
+# Audio
+TARGET_PROVIDES_AUDIO_EXTNS := true
 
 # Kernel
 TARGET_KERNEL_CONFIG := sweet_defconfig
