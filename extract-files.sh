@@ -8,6 +8,9 @@
 
 function blob_fixup() {
     case "${1}" in
+        vendor/lib64/libgoodixhwfingerprint.so )
+        "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
+            ;;
     esac
 }
 
