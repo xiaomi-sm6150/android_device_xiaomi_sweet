@@ -12,5 +12,9 @@ DEVICE_PATH := device/xiaomi/phoenix
 # Kernel
 TARGET_KERNEL_CONFIG := phoenix_defconfig
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_phoenix
+TARGET_RECOVERY_DEVICE_MODULES := libinit_phoenix
+
 # Inherit from proprietary files
 include vendor/xiaomi/phoenix/BoardConfigVendor.mk
