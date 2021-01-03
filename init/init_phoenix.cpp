@@ -57,7 +57,7 @@ constexpr const char *PRODUCTS[] = {
 
 constexpr const char *DEVICES[] = {
     "Redmi K30",
-    "Redmi K30",
+    "POCO X2",
 };
 
 constexpr const char *BUILD_DESCRIPTION[] = {
