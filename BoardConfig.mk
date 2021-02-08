@@ -9,6 +9,8 @@ include device/xiaomi/sm6150-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/phoenix
 
+BUILD_BROKEN_DUP_RULES := true
+
 # Audio
 TARGET_PROVIDES_AUDIO_EXTNS := true
 
