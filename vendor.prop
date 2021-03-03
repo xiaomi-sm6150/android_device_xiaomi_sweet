@@ -8,6 +8,10 @@ ro.vendor.audio.us.type=mius
 vendor.audio.feature.compr_voip.enable=false
 vendor.voice.path.for.pcm.voip=false
 
+# Chipset
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=SDM7150
+
 # Crypto
 ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.filenames_mode=aes-256-cts
