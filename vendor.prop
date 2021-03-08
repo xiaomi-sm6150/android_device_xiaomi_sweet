@@ -7,3 +7,7 @@ ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.filenames_mode=aes-256-cts
 ro.crypto.volume.metadata.method=dm-default-key
 ro.crypto.volume.options=::v2
+
+# Display
+vendor.display.disable_idle_time_hdr=1
+vendor.display.disable_idle_time_video=1
