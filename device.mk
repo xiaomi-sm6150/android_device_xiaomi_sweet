@@ -18,6 +18,10 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
+# Partitions
+PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
