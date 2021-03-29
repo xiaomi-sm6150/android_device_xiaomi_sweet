@@ -23,7 +23,6 @@ import android.content.IntentFilter;
 import android.os.PowerManager;
 
 import org.lineageos.settings.PowerSaveModeChangeReceiver;
-import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.utils.RefreshRateUtils;
 
@@ -37,9 +36,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         PowerSaveModeChangeReceiver receiver = new PowerSaveModeChangeReceiver();
         filter.addAction(PowerManager.ACTION_POWER_SAVE_MODE_CHANGED);
         context.getApplicationContext().registerReceiver(receiver, filter);
-
-        // Dirac
-        DiracUtils.initialize(context);
 
         // Doze
         DozeUtils.checkDozeService(context);
