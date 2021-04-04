@@ -9,6 +9,9 @@ include device/xiaomi/sm6150-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/phoenix
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := phoenix,phoenixin
+
 # Kernel
 TARGET_KERNEL_CONFIG := phoenix_defconfig
 
