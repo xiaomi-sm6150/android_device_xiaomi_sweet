@@ -1,0 +1,3 @@
+# Elliptic
+/dev/elliptic[0-9]                                                   u:object_r:ultrasound_device:s0
+/dev/mius(.*)?                                                       u:object_r:ultrasound_device:s0
