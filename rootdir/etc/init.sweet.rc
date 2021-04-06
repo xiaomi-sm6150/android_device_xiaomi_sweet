@@ -25,7 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-on property:ro.boot.product.hardware.sku=phoenix
+on property:ro.boot.product.hardware.sku=sweet
     enable vendor.nfc_hal_service
 
 service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service

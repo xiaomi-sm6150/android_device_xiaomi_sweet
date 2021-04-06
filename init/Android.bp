@@ -14,8 +14,8 @@
 // limitations under the License.
 //
 cc_library_static {
-    name: "libinit_phoenix",
-    srcs: ["init_phoenix.cpp"],
+    name: "libinit_sweet",
+    srcs: ["init_sweet.cpp"],
     recovery_available: true,
     include_dirs: [
         "system/core/base/include",
