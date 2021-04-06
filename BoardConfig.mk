@@ -7,24 +7,24 @@
 # Inherit from sm6150-common
 include device/xiaomi/sm6150-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/xiaomi/phoenix
+DEVICE_PATH := device/xiaomi/sweet
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := phoenix,phoenixin
+TARGET_OTA_ASSERT_DEVICE := sweet,sweetin
 
 # Kernel
-TARGET_KERNEL_CONFIG := phoenix_defconfig
+TARGET_KERNEL_CONFIG := sweet_defconfig
 
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
-ODM_MANIFEST_SKUS += phoenix
-ODM_MANIFEST_PHOENIX_FILES := \
+ODM_MANIFEST_SKUS += sweet
+ODM_MANIFEST_SWEET_FILES := \
     $(COMMON_PATH)/configs/hidl/manifest-qva.xml \
     $(DEVICE_PATH)/configs/hidl/manifest-nfc.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_phoenix
-TARGET_RECOVERY_DEVICE_MODULES := libinit_phoenix
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_sweet
+TARGET_RECOVERY_DEVICE_MODULES := libinit_sweet
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -82,4 +82,4 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 # Inherit from proprietary files
-include vendor/xiaomi/phoenix/BoardConfigVendor.mk
+include vendor/xiaomi/sweet/BoardConfigVendor.mk
