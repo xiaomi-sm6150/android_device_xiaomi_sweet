@@ -47,9 +47,6 @@
          config_defaultPeakRefreshRate will act as the default frame rate. -->
     <integer name="config_defaultRefreshRate">120</integer>
 
-    <!-- Height of the status bar -->
-    <dimen name="status_bar_height_portrait">99px</dimen>
-
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>

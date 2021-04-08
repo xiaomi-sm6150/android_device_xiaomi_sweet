@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/*
-** Copyright 2020, The Android Open Source Project
+/* //device/apps/common/assets/res/any/dimens.xml
+**
+** Copyright 2006, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -16,14 +17,16 @@
 ** limitations under the License.
 */
 -->
+<resources>
+    <!-- Height of the status bar in portrait. The height should be
+         Max((status bar content height + waterfall top size), top cutout size) -->
+    <dimen name="status_bar_height_portrait">93px</dimen>
 
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Radius of the software rounded corners. -->
-    <dimen name="rounded_corner_radius">103px</dimen>
+    <!-- Radius of the software rounded corners at the top of the display in its natural
+        orientation. If zero, the value of rounded_corner_radius is used. -->
+    <dimen name="rounded_corner_radius_top">102px</dimen>
 
-    <!-- Default adjustment for the software rounded corners since corners are not perfectly
-        round. This value is used when retrieving the "radius" of the rounded corner in cases
-        where the exact bezier curve cannot be retrieved.  This value will be subtracted from
-        rounded_corner_radius to more accurately provide a "radius" for the rounded corner. -->
-    <dimen name="rounded_corner_radius_adjustment">19px</dimen>
+    <!-- Radius of the software rounded corners at the bottom of the display in its natural
+        orientation. If zero, the value of rounded_corner_radius is used. -->
+    <dimen name="rounded_corner_radius_bottom">102px</dimen>
 </resources>
