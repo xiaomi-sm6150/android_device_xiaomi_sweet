@@ -306,6 +306,7 @@ vendor/lib64/hw/fingerprint.fpc.so:vendor/lib64/hw/fingerprint.fpc.sm6150.so
 vendor/lib64/hw/fingerprint.fortsense.so:vendor/lib64/hw/fingerprint.fortsense.sm6150.so
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib64/vendor.sw.swfingerprint@2.0.so
+vendor/lib/modules/fpc1540.ko
 
 # Graphics firmware
 vendor/firmware/a615_zap.b00
