@@ -14,5 +14,14 @@ ro.crypto.volume.metadata.method=dm-default-key
 ro.crypto.volume.options=::v2
 
 # Display
+ro.surface_flinger.set_display_power_timer_ms=1000
+ro.surface_flinger.set_idle_timer_ms=200
+ro.surface_flinger.set_touch_timer_ms=200
+ro.surface_flinger.use_content_detection_for_refresh_rate=true
+ro.vendor.display.ad=1
+ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg
+ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg
+ro.vendor.display.sensortype=2
 vendor.display.disable_idle_time_hdr=1
 vendor.display.disable_idle_time_video=1
+vendor.display.idle_time=1100
