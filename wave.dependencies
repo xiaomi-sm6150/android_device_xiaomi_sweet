@@ -1,0 +1,16 @@
+[
+    {
+        "repository":  "Rasenkai/kernel_sweet",
+        "target_path": "kernel/xiaomi/sm6150",
+        "remote"     : "github",
+        "branch"     : "r"
+    },
+    {
+        "repository":  "device_xiaomi_sm6150-common",
+        "target_path": "device/xiaomi/sm6150-common"
+    },
+    {
+        "repository":   "vendor_xiaomi_sweet",
+        "target_path":  "vendor/xiaomi/sweet"
+    }
+]

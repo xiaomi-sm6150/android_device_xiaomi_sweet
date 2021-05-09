@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2021 The LineageOS Project
+#           (C) 2021 WaveOS
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -19,6 +20,8 @@ TARGET_OTA_ASSERT_DEVICE := sweet,sweetin
 
 # Kernel
 TARGET_KERNEL_CONFIG := sweet_defconfig
+TARGET_KERNEL_USE_LATEST_CLANG := true
+TARGET_KERNEL_ADDITIONAL_FLAGS += LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip
 
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml

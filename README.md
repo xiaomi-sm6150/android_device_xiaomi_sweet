@@ -1,4 +1,5 @@
 Copyright (C) 2020 The LineageOS Project
+Copyright (C) 2020 Wave-OS
 
 Device configuration for Xiaomi Redmi Note 10 Pro
 =========================================
