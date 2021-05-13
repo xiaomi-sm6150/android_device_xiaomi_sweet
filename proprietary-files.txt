@@ -13,6 +13,19 @@ vendor/etc/acdbdata/adsp_avs_config.acdb
 # Audio firmware
 vendor/firmware/tfa98xx.cnt
 
+# Audio HAL
+vendor/lib/hw/audio.primary.sm6150.so
+vendor/lib/libaudio_log_utils.so
+vendor/lib/libaudioparsers.so
+vendor/lib/libaudioroute_ext.so
+
+# Audio extensions
+vendor/lib/liba2dpoffload.so
+vendor/lib/libhdmiedid.so
+vendor/lib/libhfp.so
+vendor/lib/libsndmonitor.so
+vendor/lib/libspkrprot.so
+
 # Camera
 vendor/etc/camera/CFR_para_UW_src1.bin
 vendor/etc/camera/CFR_para_UW_src2.bin

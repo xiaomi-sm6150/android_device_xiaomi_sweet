@@ -14,6 +14,9 @@ $(call inherit-product, device/xiaomi/sm6150-common/sm6150.mk)
 PRODUCT_SHIPPING_API_LEVEL := 29
 
 # Audio
+PRODUCT_PACKAGES += \
+    libtinycompress
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
     $(LOCAL_PATH)/configs/audio/mixer_paths_idp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_idp.xml \
