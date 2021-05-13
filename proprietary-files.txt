@@ -13,6 +13,19 @@ vendor/etc/acdbdata/Forte/Forte_workspaceFile.qwsp
 # Audio firmware
 vendor/firmware/tfa98xx.cnt
 
+# Audio HAL
+vendor/lib/hw/audio.primary.sm6150.so
+vendor/lib/libaudio_log_utils.so
+vendor/lib/libaudioparsers.so
+vendor/lib/libaudioroute_ext.so
+
+# Audio extensions
+vendor/lib/liba2dpoffload.so
+vendor/lib/libhdmiedid.so
+vendor/lib/libhfp.so
+vendor/lib/libsndmonitor.so
+vendor/lib/libspkrprot.so
+
 # Camera
 vendor/etc/camera/almalence_sr_params_tele.config
 vendor/etc/camera/almalence_sr_params_wide.config

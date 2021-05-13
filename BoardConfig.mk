@@ -9,6 +9,9 @@ include device/xiaomi/sm6150-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/phoenix
 
+# Audio
+TARGET_PROVIDES_AUDIO_EXTNS := true
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := phoenix,phoenixin
 
