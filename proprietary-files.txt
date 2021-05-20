@@ -461,3 +461,6 @@ vendor/lib64/libthermalclient.so
 
 # Touchscreen
 vendor/firmware/NT36xxx_MP_Setting_Criteria_592A.csv
+
+# WLAN
+vendor/bin/cnss-daemon
