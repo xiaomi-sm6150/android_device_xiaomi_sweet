@@ -454,6 +454,7 @@ vendor/etc/thermal-normal.conf
 vendor/etc/thermal-phone.conf
 vendor/etc/thermal-tgame.conf
 vendor/etc/thermald-devices.conf
+vendor/lib64/libthermalclient.so
 
 # Touchscreen
 vendor/firmware/NT36xxx_MP_Setting_Criteria_592A.csv
