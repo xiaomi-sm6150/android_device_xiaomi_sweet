@@ -108,9 +108,5 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# WiFi
-PRODUCT_PACKAGES += \
-    SweetWifiOverlay
-
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/sweet/sweet-vendor.mk)
