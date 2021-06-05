@@ -2,7 +2,6 @@
    Copyright (c) 2015, The Linux Foundation. All rights reserved.
    Copyright (C) 2016 The CyanogenMod Project.
    Copyright (C) 2019-2020 The LineageOS Project.
-
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
@@ -36,103 +35,70 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
+#include "property_service.h"
 #include "vendor_init.h"
+
+#include <fs_mgr_dm_linear.h>
 
 using android::base::GetProperty;
 
-constexpr const char *RO_PROP_SOURCES[] = {
-    nullptr,   "product.", "product_services.", "odm.",
-    "vendor.", "system.", "system_ext.", "bootimage.",
-};
-
-constexpr const char *BRANDS[] = {
-    "Redmi",
-    "POCO",
-};
-
-constexpr const char *PRODUCTS[] = {
-    "phoenix",
-    "phoenixin",
-};
-
-constexpr const char *DEVICES[] = {
-    "Redmi K30",
-    "POCO X2",
-};
-
-constexpr const char *BUILD_DESCRIPTION[] = {
-    "redfin-user 11 RQ2A.210405.005 7181113 release-keys",
-    "redfin-user 11 RQ2A.210405.005 7181113 release-keys",
-};
-
-constexpr const char *BUILD_FINGERPRINT[] = {
-    "google/redfin/redfin:11/RQ2A.210405.005/7181113:user/release-keys",
-    "google/redfin/redfin:11/RQ2A.210405.005/7181113:user/release-keys",
-};
-
-constexpr const char *CLIENT_ID[] = {
-    "android-xiaomi",
-    "android-xiaomi-rev1",
-};
-
 void property_override(char const prop[], char const value[], bool add = true) {
-  prop_info *pi;
+    prop_info *pi;
 
-  pi = (prop_info *)__system_property_find(prop);
-  if (pi)
-    __system_property_update(pi, value, strlen(value));
-  else if (add)
-    __system_property_add(prop, strlen(prop), value, strlen(value));
+    pi = (prop_info *)__system_property_find(prop);
+    if (pi) {
+        __system_property_update(pi, value, strlen(value));
+    } else if (add) {
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+    }
 }
 
-void load_props(const char *model, bool is_in = false) {
-  const auto ro_prop_override = [](const char *source, const char *prop,
-                                   const char *value, bool product) {
-    std::string prop_name = "ro.";
+void full_property_override(const std::string &prop, const char value[], const bool product) {
+    const int prop_count = 6;
+    const std::vector<std::string> prop_types
+        {"", "odm.", "product.", "system.", "system_ext.", "vendor."};
 
-    if (product)
-      prop_name += "product.";
-    if (source != nullptr)
-      prop_name += source;
-    if (!product)
-      prop_name += "build.";
-    prop_name += prop;
-
-    property_override(prop_name.c_str(), value);
-  };
-
-  for (const auto &source : RO_PROP_SOURCES) {
-    ro_prop_override(source, "device", is_in ? PRODUCTS[1] : PRODUCTS[0], true);
-    ro_prop_override(source, "model", model, true);
-    if (!is_in) {
-      ro_prop_override(source, "brand", BRANDS[0], true);
-      ro_prop_override(source, "name", PRODUCTS[0], true);
-      ro_prop_override(source, "fingerprint", BUILD_FINGERPRINT[0], false);
-    } else {
-      ro_prop_override(source, "brand", BRANDS[1], true);
-      ro_prop_override(source, "name", PRODUCTS[1], true);
-      ro_prop_override(source, "fingerprint", BUILD_FINGERPRINT[1], false);
+    for (int i = 0; i < prop_count; i++) {
+        std::string prop_name = (product ? "ro.product." : "ro.") + prop_types[i] + prop;
+        property_override(prop_name.c_str(), value);
     }
-  }
-
-  if (!is_in) {
-    ro_prop_override(nullptr, "description", BUILD_DESCRIPTION[0], false);
-    property_override("ro.boot.product.hardware.sku", PRODUCTS[0]);
-  } else {
-    ro_prop_override(nullptr, "description", BUILD_DESCRIPTION[1], false);
-    property_override("ro.com.google.clientidbase", CLIENT_ID[0]);
-    property_override("ro.com.google.clientidbase.ms", CLIENT_ID[1]);
-  }
-  ro_prop_override(nullptr, "product", model, false);
 }
 
 void vendor_load_properties() {
-  std::string region;
-  region = GetProperty("ro.boot.hwc", "");
+    const char *fingerprint = "Xiaomi/dipper/dipper:8.1.0/OPM1.171019.011/V9.5.5.0.OEAMIFA:user/release-keys";
+    const char *description = "dipper-user 8.1.0 OPM1.171019.011 V9.5.5.0.OEAMIFA release-keys";
+    const bool is_global = (GetProperty("ro.boot.hwc", "UNKNOWN") == "GLOBAL");
+    const bool is_pro = (GetProperty("ro.boot.product.hardware.sku", "UNKNOWN") != "std");
 
-  if (region == "CN") {
-    load_props(DEVICES[0], false);
-  } else if (region == "INDIA") {
-    load_props(DEVICES[1], true);
-  }
+    std::string marketname =
+       !(!is_global && is_pro) ? "Redmi Note 10 Pro" : "Redmi Note 10 Pro Max";
+    const std::string mod_device = is_global ? "sweet_eea_global" : "sweetin_in_global";
+
+    full_property_override("build.fingerprint", fingerprint, false);
+    full_property_override("build.description", description, false);
+    property_override("ro.boot.verifiedbootstate", "green");
+
+    if (is_global) {
+        property_override("ro.boot.product.hardware.sku", "sweet");
+    }
+
+    for (int i = 0; i <= 1; i++) {
+        full_property_override("model", is_global ? "M2101K6G" :
+            (is_pro ? "M2101K6I" : "M2101K6P"), i);
+        full_property_override("device", is_global ? "sweet" : "sweetin", i);
+        full_property_override("name", is_global ? "sweet" : "sweetin", i);
+    }
+
+    property_override("ro.product.marketname", marketname.c_str());
+    property_override("ro.product.mod_device", mod_device.c_str());
+
+#ifdef __ANDROID_RECOVERY__
+    std::string buildtype = GetProperty("ro.build.type", "userdebug");
+    if (buildtype != "user") {
+        property_override("ro.debuggable", "1");
+        property_override("ro.adb.secure.recovery", "0");
+    }
+
+    android::fs_mgr::CreateLogicalPartitions("/dev/block/by-name/super");
+#endif
 }
