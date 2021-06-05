@@ -19,7 +19,10 @@ cc_library_static {
     recovery_available: true,
     include_dirs: [
         "system/core/base/include",
-        "system/core/init",
+        "system/core/init"
     ],
-    shared_libs: ["libbase"],
+    shared_libs: [
+        "libbase",
+        "libfs_mgr",
+    ],
 }
