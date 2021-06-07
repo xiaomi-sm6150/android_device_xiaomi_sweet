@@ -15,19 +15,9 @@ ro.crypto.volume.metadata.method=dm-default-key
 ro.crypto.volume.options=::v2
 
 # Display
-debug.sf.early_app_phase_offset_ns=500000
-debug.sf.early_gl_app_phase_offset_ns=15000000
-debug.sf.early_gl_phase_offset_ns=3000000
-debug.sf.early_phase_offset_ns=500000
-debug.sf.high_fps_early_gl_phase_offset_ns=6500000
-debug.sf.high_fps_early_phase_offset_ns=6100000
-debug.sf.high_fps_late_app_phase_offset_ns=1000000
-debug.sf.phase_offset_threshold_for_next_vsync_ns=6100000
 ro.surface_flinger.set_idle_timer_ms=500
 ro.surface_flinger.set_touch_timer_ms=750
 ro.surface_flinger.use_content_detection_for_refresh_rate=true
-ro.surface_flinger.vsync_event_phase_offset_ns=2000000
-ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 ro.vendor.display.ad=1
 ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg
 ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg
@@ -38,3 +28,14 @@ vendor.display.disable_rotator_downscale=1
 vendor.display.idle_time=1100
 vendor.display.use_smooth_motion=1
 vendor.display.skip_refresh_rate_change=1
+
+# Display (phase offsets)
+debug.sf.early_app_phase_offset_ns=500000
+debug.sf.early_gl_app_phase_offset_ns=15000000
+debug.sf.early_gl_phase_offset_ns=3000000
+debug.sf.early_phase_offset_ns=500000
+debug.sf.high_fps_early_gl_phase_offset_ns=6500000
+debug.sf.high_fps_early_phase_offset_ns=6100000
+debug.sf.high_fps_late_app_phase_offset_ns=1000000
+ro.surface_flinger.vsync_event_phase_offset_ns=2000000
+ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
