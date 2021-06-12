@@ -20,6 +20,9 @@ TARGET_OTA_ASSERT_DEVICE := sweet,sweetin
 # Audio
 TARGET_PROVIDES_AUDIO_EXTNS := true
 
+# Display
+TARGET_PANEL_DIMENSION_MULTIPLIER := 0.1
+
 # Kernel
 TARGET_KERNEL_CONFIG := sweet_defconfig
 
