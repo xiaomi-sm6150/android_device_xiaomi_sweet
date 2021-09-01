@@ -25,7 +25,20 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-on property:ro.boot.product.hardware.sku=sweet
+on init
+    chown system camera /dev/drv8846_dev
+    chown system camera /dev/akm09970
+    chmod 0660 /dev/drv8846_dev
+    chmod 0660 /dev/akm09970
+
+on boot
+    #Set the default voltage to 5v
+    setprop persist.vendor.cp.taper_term_mv 5000
+    setprop persist.vendor.qg_cold_temp -150
+    setprop persist.vendor.qg_coff_gain 1
+    setprop persist.vendor.qg_cld_coff_gain 1.5
+
+on init && property:ro.boot.hwc=GLOBAL
     enable vendor.nfc_hal_service
 
 service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
