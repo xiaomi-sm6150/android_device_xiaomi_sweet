@@ -165,7 +165,7 @@ vendor/lib64/libarcsoft_hta.so
 vendor/lib64/libarcsoft_portrait_lighting.so
 vendor/lib64/libarcsoft_portrait_lighting_c.so
 vendor/lib64/libarcsoft_preview_deflicker.so
-vendor/lib64/libarcsoft_super_night_raw.so
+vendor/lib64/libarcsoft_super_night_raw.so|a725136e8fe0c9ffd6b5ed527fd480478c9fd57d|a30ef90898eff351e6efc30f71b35db00f4a9d2a
 
 # Camera-components
 vendor/lib64/camera/components/com.altek.node.depurple.so
