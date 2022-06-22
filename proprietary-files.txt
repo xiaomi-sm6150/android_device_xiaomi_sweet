@@ -264,6 +264,11 @@ vendor/etc/camera/vidhance_calibration_108m
 vendor/etc/camera/vidhance_calibration_64m
 vendor/etc/camera/watermark_font_2300_3199.dat
 
+# Camera face detection
+vendor/etc/camera/megviifacepp_0_5_2_model:vendor/etc/camera/facedetectpp_0_5_2_model
+vendor/lib64/libMegviiFacepp-0.5.2.so:vendor/lib64/libFaceDetectpp-0.5.2.so;FIX_SONAME
+vendor/lib64/libmegface.so:vendor/lib64/libfacedet.so;FIX_SONAME
+
 # Camera-firmware
 vendor/firmware/CAMERA_ICP.elf
 

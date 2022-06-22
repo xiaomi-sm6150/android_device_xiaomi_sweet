@@ -35,6 +35,10 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace(' +seclabel u:r:mi_thermald:s0\n', ''),
     'vendor/lib64/camera/components/com.qti.node.watermark.so': blob_fixup()
         .add_needed('libpiex_shim.so'),
+    ('vendor/lib64/hw/camera.qcom.so', 'vendor/lib64/libFaceDetectpp-0.5.2.so', 'vendor/lib64/libfacedet.so'): blob_fixup()
+        .binary_regex_replace(b'libmegface.so', b'libfacedet.so')
+        .binary_regex_replace(b'libMegviiFacepp-0.5.2.so', b'libFaceDetectpp-0.5.2.so')
+        .binary_regex_replace(b'megviifacepp_0_5_2_model', b'facedetectpp_0_5_2_model'),
     ('vendor/lib64/libalLDC.so', 'vendor/lib64/libalhLDC.so'): blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
         .clear_symbol_version('AHardwareBuffer_describe')
